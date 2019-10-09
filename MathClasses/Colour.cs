@@ -236,7 +236,7 @@ namespace MathClasses
         /// </summary>
         public void SetAlpha(uint val)
         {
-            BlankRed();
+            colour = colour & 0x00FFFFFF;
             colour = colour | (val << 24);
         }
 
@@ -245,7 +245,7 @@ namespace MathClasses
         /// </summary>
         public void SetRed(uint val)
         {
-            BlankGreen();
+            colour = colour & 0xFF00FFFF;
             colour = colour | (val << 16);
         }
 
@@ -254,7 +254,7 @@ namespace MathClasses
         /// </summary>
         public void SetGreen(uint val)
         {
-            BlankBlue();
+            colour = colour & 0xFFFF00FF;
             colour = colour | (val << 8);
         }
 
@@ -263,48 +263,9 @@ namespace MathClasses
         /// </summary>
         public void SetBlue(uint val)
         {
-            BlankAlpha();
+            colour = colour & 0xFFFFFF00;
             colour = colour | val;
         }
-
-        /// <summary>
-        /// Sets the A value for this Colour to 0
-        /// </summary>
-        public void BlankAlpha()
-        {
-            colour = colour & (uint)16777215;
-        }
-
-        /// <summary>
-        /// Sets the R value for this Colour to 0
-        /// </summary>
-        public void BlankRed()
-        {
-            colour = colour & 4278255615;
-        }
-
-        /// <summary>
-        /// Sets the G value for this Colour to 0
-        /// </summary>
-        public void BlankGreen()
-        {
-            colour = colour & 4294902015;
-        }
-
-        /// <summary>
-        /// Sets the B value for this Colour to 0
-        /// </summary>
-        public void BlankBlue()
-        {
-            colour = colour & 4294967040;
-        }
-
-        /// <summary>
-        /// Sets the RGBA values for this Colour to 0
-        /// </summary>
-        public void Blank()
-        {
-            colour = 0;
-        }
+        
     }
 }
